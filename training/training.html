@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrainement des IA</title>
+</head>
+<body>
+
+<header>
+    <h1>Entrainement d'un modèle</h1>
+    <nav>
+        <a href="index.html">Retour à l'accueil</a>
+    </nav>
+</header>
+
+<main>
+    <p>Ce qu'on appelle "entrainement du modèle", c'est le moment où le modèle va voir les données, faire un prédiction, puis minimiser une fonction de coût (dans le cas supervisé, on connait le label ou la target d'une instance, par example, dans une tâche de classification de chien et de chat, je sais qu'une image x contient un chat).
+        Souvent, le modèle va voir plusieurs fois les données. A chaque fois, il va modifier ses paramètres internes de sorte à améliorer ses résultats, c'est à dire en minimisant la fonction de coût.
+        L'entrainement d'un modèle peut prendre plus ou moins de temps selon la dimension des données, leur nombre, la complexité du modèle et aussi le nombre de fois que l'on souhaite que le modèle voit les données.
+
+        En plus de ça, pour obtenir les meilleurs modèles possibe, il y a souvent une étape qu'on appelle le "fine-tuning". Cette étape concerne les hyperparamètres. Contrairement aux paramètres internes du modèles dont on parlait précédement, qui sont eux, modifier pendant l'étape d'apprentissage,
+        les hyperparamètres sont des paramètres qui définissent la structure du modèle, par example le nombre de couche, la taille des couches, mais aussi l'algorithme d'optimisation, le pas d'apprentissage et plein d'autres choses.
+        Ces hyperparamètres, c'est à l'humain de les fixer, et il n'est pas rare de voir un combinaison d'hyperparamètres sous-performer. 
+        L'étape de "fine-tuning" est donc l'étape ou l'on va essayer de trouver la meilleur combinaison d'hyperparamètres pour un modèle et un tâche précise.
+        Comme il n'y a pas d'ensemble d'hyperparamètres qui marche pour tout les modèles et toutes les tâches, il faut donc réessayer à chaque nouvelle problèmatique.
+        Le but est donc d'essayer plusieurs combinaisons d'hyperparamètres, et de choisir celle qui donne les meilleurs résultats, pour cela, pour chaque combinaison, on entraine le modèle en entier. Enfin, on compare les modèles sur un ensemble de données
+        de validation, et on choisit le modèle qui donne les meilleurs résultats.
+
+        L'étape de fine-tuning peut donc être extrement coûteuse. Pour les modèles très lourd, il est déja très long de faire un entrainement,
+        entrainer plusieurs modèles pour le "fine-tuning" peut être extrement long, monopoliser des ressources pendant plusieurs semaines voir mois.
+
+        Ce qu'il faut voir, c'est ce que l'on gagne en faisant du "fine-tuning". Parfois, on aura un gain de performance énorme en trouvant la bonne combinaison d'hyperparamètre.
+        En revanche, il n'est pas rare d'avoir un écart très faible entre le premier modèle et celui qu'on a obtenu avec le "fine-tuning". Dans ce cas, on a utiliser beaucoup de ressources pour 
+        un gain faible.
+
+        Il faut donc trouver un compromis entre le temps d'entrainement et le gain de performance. C'est ce qu'on appelle souvent le "trade-off".
+        La question qu'on doit se poser, c'est est-ce que j'ai vraiment besoin de gagner 0.1% de performance en plus ? Dans certains cas, la réponse est rapidement oui,
+        mais dans d'autres, la question mérite d'être posée. Il y a des situations où l'utilisateur final ne verra pas la différence entre un modèle qui a 90% de précision et un modèle qui a 90.1% de précision.
+        Et éventuellement, l'impact de l'erreur du modèle peu être faible. Par example, si on fait un modèle qui détecte des tumeurs dans des IRMs, on veut forcement que le modèle rate le moins de tumeur possible et qu'il les segmente de la manière la plus précise possible.
+        En revanche, si le but est de compter le nombre de grain de riz dans un sac, on peut se permettre d'avoir un modèle qui se trompe de temps en temps, car l'impact de l'erreur est faible.
+
+        Enfin, il existe des solutions pour rendre l'apprentissage plus léger (ou plutôt moins lourd) dans certaines situation spécifique. On abordera ces solutions plus tard dans cette veille, mais il faut aussi noter que les choix du modèle peut avoir une importance cruciale!
+    </p>
+    
+</main>
+
+<footer>
+    <p>&copy; 2024 Elouan Vincent</p>
+</footer>
+
+</body>
+</html>

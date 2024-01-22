@@ -16,8 +16,29 @@
 </header>
 
 <main>
+    <p>Plutôt que de reconstruire un modèle à partir de zéro, on peut utiliser l'apprentissage par transfert.
+        L'apprentissage par transfert utilise un modèle "pré-entrainé" sur une tâche similaire à la tâche cible, puis après "transfert" les connaissances déjà apprise pour la nouvelle tâche.Cette approche tire parti des caractéristique génériques apprises par le modèle initialn, le modèle n'a donc pas à apprendre certaines features
+        pour la nouvelle tâches, accélérant donc l'apprentissage. On réduit aussi au passage le nombre de données requises pour l'entrainement du modèle. 
+        <img src="../figs/transfer_learning.png" alt="transfer learning" width="500px"> 
+        
+    </p>
     <p>
+        En réduisant le temps d'entrainement du modèle, on réduit évidemment son impact environnemental. Cette méthode s'applique principalement à des domaines ou les ressources sont limitées, et elle est rendu possible 
+        grâce à la disponibilité de modèles pré-entrainés. Les grosses plateforme de cloud computing propose souvent des modèles généréiques pré-entrainés pour certaines tâches, que l'on peut réntrainer directement sur leurs services.
+        D'un autres côté, on a plusieurs site  qui référence des modèles pré-entrainés. Le meilleur example est <a href="https://huggingface.co/">Hugging-Face</a>. Inutile que préciser que l'open-source au niveau des modèles et des données permettent 
+        des développement qui sont guidés par autres choses que des grandes sommes d'argent, et que l'existence de ce genre de site permet, indirectement, de réduire un peu l'impact de notre domaine.
 
+    </p>
+    <p>
+        Cette méthode ne s'applique que dans certains cas, mais elle peut se révéler intéressantes et efficace dans certaines situations.
+        Pour approfondir le sujet, vous pouvez consulter les sources citées ci-dessous.
+    </p>
+    <p>
+        Sources :
+        <ul>
+            <li>WEISS, Karl, KHOSHGOFTAAR, Taghi M., et WANG, DingDing. A survey of transfer learning. Journal of Big data, 2016, vol. 3, no 1, p. 1-40. <a href="https://journalofbigdata.springeropen.com/articles/10.1186/s40537-016-0043-6">papier</a></li>
+            <li><a href="https://datascientest.com/transfer-learning">source de l'image ci-dessus</a></li>
+        </ul>
     </p>
     
 </main>

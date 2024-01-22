@@ -16,12 +16,12 @@
 
 <main>
     <p>
-        L'un des approches que l'on peut envisager pour réduire l'impact d'un modèle, une fois qu'on a travaillé nos données, réfléchi sur notre artchitecture, optimisé notre entrainement, c'est de modifier notre modèle une fois qu'il est entraîner, dans le but de le rendre plus léger.
+        L'un des approches que l'on peut envisager pour réduire l'impact d'un modèle, une fois qu'on a travaillé nos données, réfléchi sur notre artchitecture, optimisé notre entraînement, c'est de modifier notre modèle une fois qu'il est entraîné, dans le but de le rendre plus léger.
 
-        Deux approches cruciales dans cette quête de frugalité sont le pruning (élagage) et la quantization (quantification), qui visent à réduire la complexité des modèles tout en préservant leurs performances. Ces deux méthodes s'inscrivent dans une démarche d'optimisation visant à rendre les IA plus légères, plus rapides et moins gourmandes en ressources matérielles.
-        En général, ces deux méthodes sont utilisées pour introduire des modèles dans des systèmes embarqués, comme des drones, des caméras où bien d'autres application industrielle. Comme souvent, ces équipements ont des ressources très limités, un trsè gros modèle ne peut pas tourner directement sur le système. C'est pourquoi réduire la taille d'un modèle à souvent de l'intéret dans ce domaine.
-        Evidemment, ici on s'y intéresse pour d'autres raison, mais le résultat est le même : avoir un modèle plus léger en sacrifiant le moins possible les performances.    
-    </p>
+        Deux approches cruciales dans cette quête de frugalité sont le pruning (élagage) et la quantization (quantification), qui visent à réduire la complexité des modèles tout en préservant leurs performances. Ces deux méthodes s'inscrivent dans une démarche d'optimisation visant à rendre les IA plus légère, plus rapides et moins gourmandes en ressources matérielles.
+        En général, ces deux méthodes sont utilisées pour introduire des modèles dans des systèmes embarqués, comme des drones, des caméras ou bien d'autres applications industrielles. Comme souvent, ces équipements ont des ressources très limitées, un très gros modèle ne peut pas tourner directement sur le système. C'est pourquoi réduire la taille d'un modèle à souvent de l'intérêt dans ce domaine.
+        Evidemment, ici on s'y intéresse pour d'autres raisons, mais le résultat est le même : avoir un modèle plus léger en sacrifiant le moins possible les performances.
+</p>
     <p>
         Le pruning, ou élagage, consiste à éliminer sélectivement certaines connexions ou neurones d'un réseau de neurones sans compromettre significativement ses performances. Cette technique s'inspire du principe biologique de la neurogenèse, où les connexions neuronales peu utilisées sont éliminées pour optimiser l'efficacité du réseau. Le pruning peut être effectué de manière statique, avant l'entraînement, ou de manière dynamique, pendant l'apprentissage. L'élagage statique implique généralement la suppression de connexions basées sur des critères prédéfinis, tandis que l'élagage dynamique ajuste les poids en temps réel en fonction de leur importance relative. Cette approche permet de réduire considérablement le nombre de paramètres d'un modèle, entraînant une diminution significative de la charge computationnelle et des besoins en mémoire.
     </p>   

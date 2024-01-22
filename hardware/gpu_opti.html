@@ -33,26 +33,27 @@
     <!-- Ajoutez ici vos explications sur l'entraînement des IA -->
 
     <h3>Optimiser l'usage du GPU</h3>
-    <p>On pourrait détailler beaucoup d'aspect pour optimiser l'usage des GPUs dans l'entrainement des modèles, mais on va se concentrer uniquement sur certains points.
-        Une partie de l'optimisation peut se faire dans le code, mais aussi dans les hyperparamètres d'entrainement, notamment la taille de batch. Un "batch" c'est un groupe de données que le modèle va voir de manière parallèle. Il faut faire attention à cette hyperparamètre car son impact 
-        n'est pas uniquement sur le temps d'entrainement et l'usage des ressources mais aussi sur la convergence de l'entrainement. 
-        On ne parlera pas de la convergence de l'entrainement ici mais uniquement de l'impact sur les ressources.
+    <p>On pourrait détailler beaucoup d'aspects pour optimiser l'usage des GPUs dans l'entrainement des modèles, mais on va se concentrer uniquement sur certains points.
+        Une partie de l'optimisation peut se faire dans le code, mais aussi dans les hyperparamètres d'entraînement, notamment la taille de batch. Un "batch" c'est un groupe de données que le modèle va voir de manière parallèle. Il faut faire attention à cette hyperparamètre car son impact
+        n'est pas uniquement sur le temps d'entraînement et l'usage des ressources, mais aussi sur la convergence de l'entraînement.
+        On ne parlera pas de la convergence de l'entraînement ici, mais uniquement de l'impact sur les ressources.
         En effet, plus le batch est grand, plus le modèle va avoir besoin de mémoire pour stocker les données, et donc plus il va falloir de mémoire sur le GPU.
-        Quand un GPU est allumé, le delta de consommation lorsequ'il ne fait aucun calcul et lorsequ'il tourne à toute puissance n'est pas énorme. Encore moins si on compare la consommation avec un batch de taille 32 ou 64, tant que les deux rentres en RAM.
-
+        Quand un GPU est allumé, le delta de consommation lorse qu'il ne fait aucun calcul et lorsequ'il tourne à toute-puissance n'est pas énorme. Encore moins si on compare la consommation avec un batch de taille 32 ou 64, tant que les deux rentrent en RAM.
+    </p>
+    <p>   
         Quand on veut utiliser le GPU de la meilleur manière qui soit, on veut donc l'utiliser à 100% de ses capacités. Il faut donc trouver la taille de batch qui permet d'utiliser le GPU à 100%, où celle qui permet le plus possible de s'en rapprocher, tout en gardant en tête que cela peut impacter la convergence du modèle.
-        Cependant, ce choix de la taille du batch viens avec le choix approprié du GPU. En effet, il ne sert à rien d'essayer de trouver la taille du batch qui utilise au mieux un A100 (<a href="https://www.nvidia.com/fr-fr/data-center/a100/">si jamais vous avez un PEL à craquer</a>) pour entrainer un modèle sur CIFAR10.
+        Cependant, ce choix de la taille du batch viens avec le choix approprié du GPU. En effet, il ne sert à rien d'essayer de trouver la taille du batch qui utilise au mieux un A100 () pour entraîner un modèle sur CIFAR10.
         Il existe beaucoup de benchmark qui permettent de comparer les performances des GPUs sur des tâches spécifiques, et il faut donc choisir le GPU qui correspond le mieux à notre tâche.
-        Dans tout les cas, ce choix n'intervient que si vous avez un cluster à disposition, sinon, il ne faut pas changer de GPU à chaque fois que vous entrainez un modèle différent, ou alors vous pouvez utiliser le cloud computing !
+        Dans tous les cas, ce choix n'intervient que si vous avez un cluster à disposition, sinon, il ne faut pas changer de GPU à chaque fois que vous entraînez un modèle différent, ou alors vous pouvez utiliser le cloud computing !
     </p>
 
     <h3> Zeus framework</h3>
 
     <p>Parmi les options que l'on a pour optimiser l'usage des GPUs, il existe le framework Zeus.
-         Zeus, est un framework qui permet de naviguer le compromis en trouvant automatiquement une configurations au niveau du GPU et de la tâche pour l'entrainement des modèles de deep learning.
-         Zeus utilise une approche d’exploration-exploitation avec un profilage de l’énergie temps à temps,
+        Zeus, est un framework qui permet de naviguer le compromis en trouvant automatiquement une configuration au niveau du GPU et de la tâche pour l'entraînement des modèles de deep learning.
+        Zeus utilise une approche d’exploration-exploitation avec un profilage de l’énergie temps à temps,
         pour éviter des mesures coûteuses, tout en s’adaptant au "data drift"
-        Selon leurs évaluations, Zeus peut améliorer l’efficacité énergétique de l'entrainement de modèle de deep learning de 15,3 % à 75,8 %
+        Selon leurs évaluations, Zeus peut améliorer l’efficacité énergétique de l'entraînement de modèle de deep learning de 15,3 % à 75,8 %
         pour diverses tâches.
     </p>
 

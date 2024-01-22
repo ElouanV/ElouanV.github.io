@@ -15,50 +15,50 @@
 </header>
 
 <main>
-    <p>L'apprentissage fédéré répond à la problématique de la confidentialité des données . Lorsqu'il s'agit d'entraîner des 
-        modèles d'intelligence artificielle sur des données sensibles, telles que des informations médicales ou des données 
-        personnelles, la nécessité de protéger la vie privée et la sécurité des utilisateurs devient primordiale. 
-        Dans ce contexte, l'apprentissage fédéré offre une solution novatrice en permettant l'entraînement de modèles 
+    <p>L'apprentissage fédéré répond à la problématique de la confidentialité des données. Lorsqu'il s'agit d'entraîner des
+        modèles d'intelligence artificielle sur des données sensibles, telles que des informations médicales ou des données
+        personnelles, la nécessité de protéger la vie privée et la sécurité des utilisateurs devient primordiale.
+        Dans ce contexte, l'apprentissage fédéré offre une solution novatrice en permettant l'entraînement de modèles
         de manière décentralisée, sur des appareils locaux, tout en consolidant les connaissances acquises pour améliorer
-         la performance globale du modèle.</p>
+        la performance globale du modèle.</p>
 
         <p>
-            Normalement, pour entrainer un modèle, on transfert les données du serveur vers le client, qui entraine le modèle. Dans un contexte où les données sont confidentielles 
-            et que c'est la raison pour laquelle elles sont distribuées, on ne peut évidemment pas faire ça.
+            Normalement, pour entraîner un modèle, on transfert les données du serveur vers le client, qui entraîne le modèle. Dans un contexte où les données sont confidentielles
+et que c'est la raison pour laquelle elles sont distribuées, on ne peut évidemment pas faire ça.
         </p>
 
         <p>
-            C'est à cette problèmatique que s'attaque l'apprentissage fédéré, comment entrainé un modèle performant sans pouvoir faire des requêtes de données à une base de données ?
-            Le principe de l'apprentissage fédéré repose sur la distribution du processus d'entraînement sur plusieurs 
-            appareils ou serveurs, chaque appareil maintenant localement ses données tout en participant activement à 
-            l'apprentissage global du modèle. Ces appareils effectuent des mises à jour de modèle basées sur leurs données 
-            locales, et ces mises à jour sont agrégées de manière globale sans que les données brutes ne quittent l'appareil. 
-            Ainsi, l'apprentissage fédéré offre la possibilité d'entraîner des modèles sans centraliser les données, 
+            C'est à cette problématique que s'attaque l'apprentissage fédéré, comment entraîné un modèle performant sans pouvoir faire des requêtes de données à une base de données ?
+            Le principe de l'apprentissage fédéré repose sur la distribution du processus d'entraînement sur plusieurs
+            appareils ou serveurs, chaque appareil maintenant localement ses données tout en participant activement à
+            l'apprentissage global du modèle. Ces appareils effectuent des mises à jour de modèle basées sur leurs données
+            locales, et ces mises à jour sont agrégées de manière globale sans que les données brutes ne quittent l'appareil.
+            Ainsi, l'apprentissage fédéré offre la possibilité d'entraîner des modèles sans centraliser les données,
             préservant ainsi la confidentialité et la sécurité des informations sensibles.
         </p>
 
         <p>
-            En termes de frugalité des intelligences artificielles, l'apprentissage fédéré présente des avantages 
-            significatifs. Tout d'abord, en limitant la nécessité de transférer de grandes quantités de données vers 
-            un emplacement centralisé, cette méthode réduit la charge sur les réseaux et les serveurs, car bien souvent, le modèle même si il est lourd, reste plus léger que les données qu'il a utilisé pour s'netrainer.
-            Ainsi, on économise 
+            En termes de frugalité des intelligences artificielles, l'apprentissage fédéré présente des avantages
+            significatifs. Tout d'abord, en limitant la nécessité de transférer de grandes quantités de données vers
+            un emplacement centralisé, cette méthode réduit la charge sur les réseaux et les serveurs, car bien souvent, le modèle même si il est lourd, reste plus léger que les données qu'il a utilisé pour s'entrainer.
+            Ainsi, on économise
             des ressources en termes de bande passante et d'infrastructure, qui sont, même si on ne l'a pas montré ici,
-             aussi représenter des consommations très importantes.. 
-        </p>
+            aussi des consommations très importantes..
 
-        <p>
-            Certains papier propose même d'aller encore plus loin, en proposant de joindre l'apprentissage fédéré et le model pruning, pour réduire la taille des fragments de modèle qui vont transiter 
+
+            </p>
+            <p>
+            Certains papiers proposent même d'aller encore plus loin, en proposant de joindre l'apprentissage fédéré et le model pruning, pour réduire la taille des fragments de modèle qui vont transiter
             d'un appareil à l'autre, rendant l'approche encore plus intéressante.
 
         </p>
-    <!-- Ajoutez ici vos explications sur l'entraînement des IA -->
 
     <p>Sources :
         <ul>
             <li>ZHANG, Chen, XIE, Yu, BAI, Hang, et al. A survey on federated learning. Knowledge-Based Systems, 2021, vol. 216, p. 106775.<a href="https://www.sciencedirect.com/science/article/pii/S0950705121000381">papier</a></li>
             <li>LI, Li, FAN, Yuxi, TSE, Mike, et al. A review of applications in federated learning. Computers & Industrial Engineering, 2020, vol. 149, p. 106854.<a href="https://orca.cardiff.ac.uk/id/eprint/134968/1/CAIE_A%20review%20of%20applications%20in%20federated%20learning_deposit.pdf">papier</a></li>
             <li>JIANG, Yuang, WANG, Shiqiang, VALLS, Victor, et al. Model pruning enables efficient federated learning on edge devices. IEEE Transactions on Neural Networks and Learning Systems, 2022.<a href="https://ieeexplore.ieee.org/iel7/5962385/6104215/09762360.pdf?casa_token=HHp5Ezerf8AAAAAA:EPN923j-b3r5ZKKMkah2tTUTHbI5YogJPRa6PcTEUQN8qyr2BPCnXudaNWXjDuKXshmo9YS8_IN27g">papier</a></li>
-            
+
         </ul>
     </p>
 </main>

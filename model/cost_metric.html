@@ -17,14 +17,14 @@
 <main>
     <p> On l'a évoqué précédemment, pouvoir produire une métrique qui permettrait d'évaluer un modèle sur sa performance et sa frugalité serait une bonne solution pour pouvoir nous aider
         à choisir le meilleur modèle en limitant les ressources dont-il a besoin.
-        Pour ça, il faut définir de chose, la métrique de performance: elle dépend beaucoup du problème, de la tâche, mais globalement on en connait plein. La plus connue étant l'accuracy quand on travaille sur de la classification.
-        En revanche, pour estimer la frugalité, la métrique idéale n'est pas évident à trouver. Un premier point qui rend la chose compliqué, c'est de définir ce que c'est efficacité du modèle.
-        Il y a trops de manière de voir la chose pour toutes les énoncer ici. On mettra déja de côté la partie sur la frugalité des données. En effet, les modèles d'apprentissage profond on souvent besoin de pas mal de données pour extraire les features intéressantes
+        Pour ça, il faut définir de chose, la métrique de performance : elle dépend beaucoup du problème, de la tâche, mais globalement, il y en a connaît plein. La plus connue étant l'accuracy quand on travaille sur de la classification.
+        En revanche, pour estimer la frugalité, la métrique idéale n'est pas évidente à trouver. Un premier point qui rend la chose compliquée, c'est de définir ce que c'est efficacité du modèle.
+        Il y a trop de manière de voir la chose pour toutes les énoncer ici. On mettra déjà de côté la partie sur la frugalité des données. En effet, les modèles d'apprentissage profond on a souvent besoin de beaucoup de données pour extraire les features intéressantes
         d'une jeu de données. 
     </p>
     <p>
-        La frugalités des ressources peut prendre beaucoup de chose en compte, la taille en RAM minimum requise pour entrainer le modèle, le temps d'utilisation du CPU, du GPU.
-        Déjà, ces informations peuvent être difficile à moniter facilement.
+        La frugalité des ressources peut prendre beaucoup de choses en compte, la taille en RAM minimum requise pour entraîner le modèle, le temps d'utilisation du CPU, du GPU.
+Déjà, ces informations peuvent être difficiles à monitorer facilement.
         Le papier de <l>MEHLIN Vanessa et al. Towards energy-efficient Deep Learning: An overview of energy-efficient approaches along the Deep Learning Lifecycle</l> présente un panorama intéressant de métrique envisageable, dont l'accuracy par joul selon la formule suivante:
         <l>Accuracy/Joule = ModelAccuracy/Energy_per_Request</l> qui propose un ratio entre l'accuracy du modèle et l'énergie consommé par requête. Dans le même papier, ils présentent d'autres métriques pour mesurer l'impact carbone d'un modèle, mais aussi des outils. Voici une liste d'outils directement tirée du papier:
         <ul>

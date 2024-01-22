@@ -14,7 +14,31 @@
 </header>
 
 <main>
-    <p>Le processus de sélection d'un modèle d'IA implique...</p>
+    <p>On l'a évoqué dans d'autres section, le choix du modèle, de son architecture et de ses hyperparamètres vont forcement impacter les ressources dont le modèle à besoin.
+        Evidemment, ChatGPT consome un peu plus qu'un modèle de classification de chiffre en noir et blanc. De la même manière, un CNN avec 100 couches consome a priori moins d'un CNN à trois couches.
+        En général, le nombre de paramètre d'un modèle est un bon indicateur de sa complexité, mais ce n'est pas tout le temps vrai. Certaines architecture, même si elles ont moins de paramètre, de part leur fonctionnement, sont plus gourmande.
+        Le choix du modèle impact aussi le nombre de fois que le modèle va devoir "voir" les données, et donc potentiellement son temps d'entrainement, et donc les ressources nécessaire à son entrainement.
+        En effet, certains modèle vont converger bien plus vite que d'autres, et ça peut dépendre du problème auquel on est confronté.
+        D'autres part, regarder uniquement le temps d'entrainement, le taille du modèle, il faut aussi prendre en compte le temps d'inférence, sinon les comparaisons ne sont pas juste.
+        Si on prend l'example d'un KNN, dont le temps d'entrainement est de 0 et qu'on le compare au temps d'entrainement d'un modèle profond, la comparaison n'est pas juste. Le KNN va avoir un temps d'inférence qui peut être énorme en fonction de la taille du jeu de données et du type de donnée...
+        Sans parler de la scalabilité du KNN qui le rend inutilisable dans la majorité des cas...
+
+        Donc, on ne peut pas comparer les modèles uniquements sur le temps d'entrainement, ni sur la métrique de performance, ni sur leur taille, ni sur leur nombre de paramètre.
+        Prise une par une ces métriques peuvent être facile à maximiser pour un modèle, le but du sujet qu'on aborde dans cette veille n'est pas d'avoir le modèle le moins "lourd" sur tout les plans, mais de trouver le bon équilibre.
+
+        On recherche donc un modèle scalable, qui s'entraine relativement vite avec des ressources raisonable, mais aussi qui a de bonne performance.
+
+        Tout ceux qui ont déjà eu à entrainer un modèle savent que pour choisir le meilleur modèle avec les meilleurs hyperparamètres pour un problème donnée qui maximise la métrique de performance peut vite devenir pénible.
+        Alors imaginer quand en plus de ça on doit prendre en compte d'autre métrique qui caractérisent l'efficacité d'un modèle.
+
+        Une fois le problème énoncé, on se rend rapidement compte que l'on va avoir du mal à trouver le modèle parfait.
+        Evidemment, on pourrait penser que la solution, c'est de définir une métrique globale, qui prend en compte tout nos objectifs, d'entrainer plein de modèle différent, en essayant plusieurs combinaisons d'hyperparamètres sur chaque modèle, et de prendre le meilleur de tous.
+        
+        Dans la suite de cette section de notre mindmap, on disctura un peu de ce qui peut nous aider à choisir mieux nos modèles.
+
+        A noter que dans cette veille, nous ne nous étalerons pas trop sur le sujet des choix des modèles c'est la problèmatique abordé par un étudiant dans le même cadre, qui étudie les alternatives au deep learning et l'intérêt de choisir un modèle pertinent pour chaque problème.
+        Pour creuser un peu plus le sujet, vous pouvez consulter la ressource qu'il a produit (liens à venir).
+    </p>
     <!-- Ajoutez ici vos explications sur le choix du modèle -->
 </main>
 

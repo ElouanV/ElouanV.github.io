@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Le modèle - Frugalité des IA</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Choix du Modèle - Métrique de coût</h1>
+    <nav>
+        <a href="index.html">Retour à l'accueil</a>
+    </nav>
+</header>
+
+<main>
+    <p> On l'a évoqué précédemment, pouvoir produire une métrique qui permettrait d'évaluer un modèle sur sa performance et sa frugalité serait une bonne solution pour pouvoir nous aider
+        à choisir le meilleur modèle en limitant les ressources dont-il a besoin.
+        Pour ça, il faut définir de chose, la métrique de performance: elle dépend beaucoup du problème, de la tâche, mais globalement on en connait plein. La plus connue étant l'accuracy quand on travaille sur de la classification.
+        En revanche, pour estimer la frugalité, la métrique idéale n'est pas évident à trouver. Un premier point qui rend la chose compliqué, c'est de définir ce que c'est efficacité du modèle.
+        Il y a trops de manière de voir la chose pour toutes les énoncer ici. On mettra déja de côté la partie sur la frugalité des données. En effet, les modèles d'apprentissage profond on souvent besoin de pas mal de données pour extraire les features intéressantes
+        d'une jeu de données. 
+    </p>
+    <p>
+        La frugalités des ressources peut prendre beaucoup de chose en compte, la taille en RAM minimum requise pour entrainer le modèle, le temps d'utilisation du CPU, du GPU.
+        Déjà, ces informations peuvent être difficile à moniter facilement.
+        Le papier de <l>MEHLIN Vanessa et al. Towards energy-efficient Deep Learning: An overview of energy-efficient approaches along the Deep Learning Lifecycle</l> présente un panorama intéressant de métrique envisageable, dont l'accuracy par joul selon la formule suivante:
+        <l>Accuracy/Joule = ModelAccuracy/Energy_per_Request</l> qui propose un ratio entre l'accuracy du modèle et l'énergie consommé par requête. Dans le même papier, ils présentent d'autres métriques pour mesurer l'impact carbone d'un modèle, mais aussi des outils. Voici une liste d'outils directement tirée du papier:
+        <ul>
+            <li>eco2AI: S. Budennyy et al., <l>Eco2AI: carbon emissions tracking of machine learning models as the first
+                step towards sustainable AI</l>. arXiv, Aug. 03, 2022. Accessed: Sep. 26, 2022. [Online].
+                Available: <a href="http://arxiv.org/abs/2208.00406">papier</a></li>
+            <li>Carbontracker: L. F. W. Anthony, B. Kanding, and R. Selvan, <l>Carbontracker: Tracking and Predicting the
+                Carbon Footprint of Training Deep Learning Models</l>, ArXiv200703051 Cs Eess Stat, Jul. 2020,
+                Accessed: May 10, 2022. [Online]. Available: <a href="http://arxiv.org/abs/2007.03051">papier</a></li>
+            <li>CodeCarbon: . Schmidt et al., mlco2/codecarbon: v2.1.4. Zenodo, 2022. doi: 10.5281/ZENODO.4658424.</li>
+            <li>Energy Usage Reports: K. Lottick, S. Susai, S. A. Friedler, and J. P. Wilson, <l>Energy Usage Reports: Environmental
+                awareness as part of algorithmic accountability</l>, ArXiv Learn., Nov. 2019 </li>
+            <li>EnergyVis: O. Shaikh et al., <l>EnergyVis: Interactively Tracking and Exploring Energy Consumption for ML
+                Models</l>, ArXiv Learn., 2021</li>
+            <li>Experiment-Impact-Tracker: P. Henderson, J. Hu, J. Romoff, E. Brunskill, D. Jurafsky, and J. Pineau, <l>Towards the Systematic
+                Reporting of the Energy and Carbon Footprints of Machine Learning</l>, Jan. 2020. [Online].
+                Available: <a href="http://arxiv.org/pdf/2002.05651v1">papier</a></li>
+            <li>Green Algorithms: L. Lannelongue, J. Grealey, and M. Inouye, <l>Green Algorithms: Quantifying the carbon
+                emissions of computation.</l>, Jul. 2020.</li>
+            <li>ML CO2 Impact: A. Lacoste, Alexandra Luccioni, A. Luccioni, V. Schmidt, and T. Dandres, <l>Quantifying the
+                Carbon Emissions of Machine Learning.</l>, ArXiv Comput. Soc., Oct. 2019.</li>
+        </ul> 
+
+        Certains de ces outils sont des librairies Python, d'autres des sites web. On ne va pas paraphraser les descriptions des outils ici, mais il peut être intéressant d'en étudier certains.
+    </p>
+    <!-- Ajoutez ici vos explications sur le choix du modèle -->
+</main>
+
+<footer>
+    <p>&copy; 2024 Elouan Vincent</p>
+</footer>
+
+</body>
+</html>

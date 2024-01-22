@@ -25,14 +25,40 @@
     <p>
         Les architectures parallèles des GPU permettent de répartir les calculs sur un grand nombre de cœurs, ce qui rend l'entraînement de modèles massivement parallélisable. Contrairement aux processeurs centraux (CPU) traditionnels, les GPU excèdent en termes de puissance de calcul brute, ce qui se traduit par des temps d'entraînement réduits. Cette accélération est particulièrement cruciale dans le contexte de l'apprentissage profond, où des modèles complexes nécessitent souvent des millions, voire des milliards, de paramètres à ajuster.
     </p>
+
+    <p>
+        De plus, les GPU sont conçus avec des bibliothèques et des frameworks d'apprentissage automatique bien optimisés, tels que CUDA pour les GPU NVIDIA et OpenCL pour une compatibilité plus large. Ces outils facilitent l'implémentation d'algorithmes d'apprentissage profond et offrent une interface efficace pour tirer parti de la puissance de calcul parallèle des GPU. Avec ça, les grosses librairies Python de deep learning profitent de l'optimisation des calculs GPU, et donc de leur puissance de calcul.
+        On ne parlera pas dans cette section des TPUs.
+    </p>
     <!-- Ajoutez ici vos explications sur l'entraînement des IA -->
 
+    <h3>Optimiser l'usage du GPU</h3>
+    <p>On pourrait détailler beaucoup d'aspect pour optimiser l'usage des GPUs dans l'entrainement des modèles, mais on va se concentrer uniquement sur certains points.
+        Une partie de l'optimisation peut se faire dans le code, mais aussi dans les hyperparamètres d'entrainement, notamment la taille de batch. Un "batch" c'est un groupe de données que le modèle va voir de manière parallèle. Il faut faire attention à cette hyperparamètre car son impact 
+        n'est pas uniquement sur le temps d'entrainement et l'usage des ressources mais aussi sur la convergence de l'entrainement. 
+        On ne parlera pas de la convergence de l'entrainement ici mais uniquement de l'impact sur les ressources.
+        En effet, plus le batch est grand, plus le modèle va avoir besoin de mémoire pour stocker les données, et donc plus il va falloir de mémoire sur le GPU.
+        Quand un GPU est allumé, le delta de consommation lorsequ'il ne fait aucun calcul et lorsequ'il tourne à toute puissance n'est pas énorme. Encore moins si on compare la consommation avec un batch de taille 32 ou 64, tant que les deux rentres en RAM.
+
+        Quand on veut utiliser le GPU de la meilleur manière qui soit, on veut donc l'utiliser à 100% de ses capacités. Il faut donc trouver la taille de batch qui permet d'utiliser le GPU à 100%, où celle qui permet le plus possible de s'en rapprocher, tout en gardant en tête que cela peut impacter la convergence du modèle.
+        Cependant, ce choix de la taille du batch viens avec le choix approprié du GPU. En effet, il ne sert à rien d'essayer de trouver la taille du batch qui utilise au mieux un A100 (<a href="https://www.nvidia.com/fr-fr/data-center/a100/">si jamais vous avez un PEL à craquer</a>) pour entrainer un modèle sur CIFAR10.
+        Il existe beaucoup de benchmark qui permettent de comparer les performances des GPUs sur des tâches spécifiques, et il faut donc choisir le GPU qui correspond le mieux à notre tâche.
+        Dans tout les cas, ce choix n'intervient que si vous avez un cluster à disposition, sinon, il ne faut pas changer de GPU à chaque fois que vous entrainez un modèle différent, ou alors vous pouvez utiliser le cloud computing !
+    </p>
+
+    <h3> Zeus framework</h3>
+
+
+
+    <p>Au delà de ça, on peut aussi parler de l'optimisation du code. Le meilleur code possible utiliserait au mieux les ressources disponibles, mais ça pourrait être un sujet à part entière...</p>
     <p> Sources :
         <ul>
             <li> YOU, Jie, CHUNG, Jae-Won, et CHOWDHURY, Mosharaf. Zeus: Understanding and Optimizing {GPU} Energy Consumption of {DNN} Training. In : 20th USENIX Symposium on Networked Systems Design and Implementation (NSDI 23). 2023. p. 119-139. <a href="https://www.usenix.org/system/files/nsdi23-you.pdf">papier</a></li>
         </ul>
 
     </p>
+
+
 </main>
 
 <footer>

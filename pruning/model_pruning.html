@@ -2,20 +2,49 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Model Pruning</title>
+    <title>Modèle pruning - Frugalité des IA</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
 <header>
     <h1>Model Pruning</h1>
     <nav>
-        <a href="index.html">Retour à l'accueil</a>
+        <a href="index.html">Retour à la mindmap</a>
     </nav>
 </header>
 
 <main>
-    <p>Le model pruning est une technique visant à...</p>
-    <!-- Ajoutez ici vos explications sur le model pruning -->
+    <p>
+        L'un des approches que l'on peut envisager pour réduire l'impact d'un modèle, une fois qu'on a travaillé nos données, réfléchi sur notre artchitecture, optimisé notre entrainement, c'est de modifier notre modèle une fois qu'il est entraîner, dans le but de le rendre plus léger.
+
+        Deux approches cruciales dans cette quête de frugalité sont le pruning (élagage) et la quantization (quantification), qui visent à réduire la complexité des modèles tout en préservant leurs performances. Ces deux méthodes s'inscrivent dans une démarche d'optimisation visant à rendre les IA plus légères, plus rapides et moins gourmandes en ressources matérielles.
+        En général, ces deux méthodes sont utilisées pour introduire des modèles dans des systèmes embarqués, comme des drones, des caméras où bien d'autres application industrielle. Comme souvent, ces équipements ont des ressources très limités, un trsè gros modèle ne peut pas tourner directement sur le système. C'est pourquoi réduire la taille d'un modèle à souvent de l'intéret dans ce domaine.
+        Evidemment, ici on s'y intéresse pour d'autres raison, mais le résultat est le même : avoir un modèle plus léger en sacrifiant le moins possible les performances.    
+    </p>
+    <p>
+        Le pruning, ou élagage, consiste à éliminer sélectivement certaines connexions ou neurones d'un réseau de neurones sans compromettre significativement ses performances. Cette technique s'inspire du principe biologique de la neurogenèse, où les connexions neuronales peu utilisées sont éliminées pour optimiser l'efficacité du réseau. Le pruning peut être effectué de manière statique, avant l'entraînement, ou de manière dynamique, pendant l'apprentissage. L'élagage statique implique généralement la suppression de connexions basées sur des critères prédéfinis, tandis que l'élagage dynamique ajuste les poids en temps réel en fonction de leur importance relative. Cette approche permet de réduire considérablement le nombre de paramètres d'un modèle, entraînant une diminution significative de la charge computationnelle et des besoins en mémoire.
+    </p>   
+    <p> 
+        Parallèlement, la quantization, ou quantification, vise à réduire la précision des poids et des activations d'un modèle en les représentant avec un nombre inférieur de bits. Alors que les réseaux de neurones traditionnels utilisent souvent des paramètres représentés par des nombres flottants sur 32 ou 64 bits, la quantization réduit cette précision à des entiers sur un nombre plus restreint de bits (8 bits, par exemple). Cette réduction de la précision n'affecte généralement pas de manière significative les performances du modèle, mais elle permet de diminuer drastiquement la taille du modèle et d'accélérer son exécution. La quantization peut être appliquée de manière post-entraînement, où les poids du modèle sont ajustés après l'entraînement initial, ou de manière durant l'entraînement, intégrant ainsi la quantization dans le processus d'apprentissage.
+    </p>
+    <p>    
+        Ces deux techniques, le pruning et la quantization, peuvent également être combinées pour obtenir des gains synergiques en termes d'efficacité. En éliminant les connexions peu importantes par le pruning et en réduisant la précision des poids par la quantization, on parvient à créer des modèles plus compacts tout en maintenant des performances acceptables. 
+    </p>
+    <p>
+        Dans cette veille, on ne va pas aller plus loin sur ce sujet, même si il est très intéressant, car il est traité en détail par un autre étudiant (liens vers la ressource à venir).
+        Enfin, si vous voulez aller plus loin sur ce sujet, voici quelques références :
+
+        <ul>
+            <li><a href="https://medium.com/@souvik.paul01/pruning-in-deep-learning-models-1067a19acd89">Medium sur le model pruning</a></li>
+            <li>HOEFLER, Torsten, ALISTARH, Dan, BEN-NUN, Tal, et al. Sparsity in deep learning: Pruning and growth for efficient inference and training in neural networks. The Journal of Machine Learning Research, 2021, vol. 22, no 1, p. 10882-11005.<a href="https://www.jmlr.org/papers/volume22/21-0366/21-0366.pdf">papier sur le pruning</a></li>
+            <li>ZHU, Michael et GUPTA, Suyog. To prune, or not to prune: exploring the efficacy of pruning for model compression. arXiv preprint arXiv:1710.01878, 2017. <a href="https://arxiv.org/pdf/1710.01878.pdf">papier sur le pruning</a></li>
+            <li>POLINO, Antonio, PASCANU, Razvan, et ALISTARH, Dan. Model compression via distillation and quantization. arXiv preprint arXiv:1802.05668, 2018.<a href="https://arxiv.org/pdf/1802.05668"> papier sur la quantization</a></li>
+            <li>KLIMCZAK, Adrianna, WENKA, Marcel, GANZHA, Maria, et al. Towards Frugal Artificial Intelligence: Exploring Neural Network Pruning and Binarization. In : International Symposium on Intelligent Informatics. Singapore : Springer Nature Singapore, 2022. p. 13-27. <a href="https://link.springer.com/chapter/10.1007/978-981-19-8094-7_2">papier</a></li>
+        </ul>
+
+
+    </p>
 </main>
 
 <footer>

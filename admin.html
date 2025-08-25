@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Elouan V.</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .admin-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        .admin-form {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .json-preview {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .copy-btn {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>Elouan V.</h1>
+                <p>Admin Panel</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">← Back to Site</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="admin-container">
+        <h1>Content Management</h1>
+        
+        <!-- News Item Form -->
+        <div class="admin-form">
+            <h2>Add News Item</h2>
+            <form id="news-form">
+                <div class="form-group">
+                    <label for="news-title">Title:</label>
+                    <input type="text" id="news-title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="news-date">Date:</label>
+                    <input type="text" id="news-date" placeholder="e.g., Aug 2025" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="news-type">Type:</label>
+                    <select id="news-type" required>
+                        <option value="publication">Publication</option>
+                        <option value="presentation">Presentation</option>
+                        <option value="collaboration">Collaboration</option>
+                        <option value="award">Award</option>
+                        <option value="service">Service</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="news-content">Content:</label>
+                    <textarea id="news-content" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="news-links">Links (one per line, format: Text|URL):</label>
+                    <textarea id="news-links" placeholder="Paper|https://example.com/paper.pdf&#10;Code|https://github.com/user/repo"></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Generate JSON</button>
+            </form>
+        </div>
+
+        <!-- JSON Preview -->
+        <div class="admin-form">
+            <h2>Generated JSON</h2>
+            <p>Copy this JSON and add it to your <code>data/news.json</code> file:</p>
+            <div id="json-output" class="json-preview">
+                Generated JSON will appear here...
+            </div>
+            <button id="copy-json" class="btn copy-btn">Copy to Clipboard</button>
+        </div>
+
+        <!-- Instructions -->
+        <div class="admin-form">
+            <h2>Instructions</h2>
+            <ol>
+                <li>Fill out the form above to create a new news item</li>
+                <li>Click "Generate JSON" to create the JSON format</li>
+                <li>Copy the generated JSON</li>
+                <li>Open <code>data/news.json</code> in your editor</li>
+                <li>Add the new item to the "news" array (remember to add a comma after the previous item)</li>
+                <li>Update the "id" field to be unique (use the next number in sequence)</li>
+                <li>Save the file and refresh your website to see the changes</li>
+            </ol>
+            
+            <h3>Quick Links Management</h3>
+            <p>To manage other content:</p>
+            <ul>
+                <li><strong>Papers:</strong> Edit <code>data/papers.json</code></li>
+                <li><strong>Conferences:</strong> Edit <code>data/conferences.json</code></li>
+                <li><strong>Profile Info:</strong> Edit <code>data/profile.json</code></li>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('news-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('news-title').value;
+            const date = document.getElementById('news-date').value;
+            const type = document.getElementById('news-type').value;
+            const content = document.getElementById('news-content').value;
+            const linksText = document.getElementById('news-links').value;
+            
+            // Parse links
+            const links = [];
+            if (linksText.trim()) {
+                const linkLines = linksText.trim().split('\n');
+                linkLines.forEach(line => {
+                    const parts = line.split('|');
+                    if (parts.length === 2) {
+                        links.push({
+                            text: parts[0].trim(),
+                            url: parts[1].trim()
+                        });
+                    }
+                });
+            }
+            
+            // Generate JSON
+            const newsItem = {
+                id: "REPLACE_WITH_NEXT_ID",
+                date: date,
+                title: title,
+                content: content,
+                type: type,
+                links: links
+            };
+            
+            // Display formatted JSON
+            const jsonOutput = document.getElementById('json-output');
+            jsonOutput.textContent = JSON.stringify(newsItem, null, 2);
+        });
+        
+        document.getElementById('copy-json').addEventListener('click', function() {
+            const jsonText = document.getElementById('json-output').textContent;
+            navigator.clipboard.writeText(jsonText).then(function() {
+                const btn = document.getElementById('copy-json');
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = '#10b981';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '#2563eb';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

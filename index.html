@@ -1,41 +1,114 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Veille Technologique sur la Frugalité des IA</title>
-    <link rel="stylesheet" href="../styles.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elouan V. - PhD Student</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>Elouan V.</h1>
+                <p>PhD Student</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="papers.html">Papers</a></li>
+                <li><a href="conferences.html">Conferences</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <h1>Veille Technologique sur la Frugalité des IA</h1>
-    
-</header>
+    <main class="container">
+        <!-- About Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <!-- You can add your photo here -->
+                        <div class="placeholder-image">
+                            <span>Photo</span>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h2>About Me</h2>
+                        <p>Welcome to my academic homepage! I am a PhD student at <a href="https://liris.cnrs.fr/">LIRIS</a> specializing in computer science and Artificial Intelligence. My research focuses on graph representation learning and its applications.</p>
 
-<main>
-    <!-- Ajoute un section texte -->
-    <p>Cette page a été crée dans le cadre du cours "Veille technologique" de la spécialisation SCIA-G d'EPITA. 
-        Elle est destinée à être lu vie la mind map fournie avec.</p>
-    <p> Chaque case de la mindmap est clicable et renvois sur une page pour explorer un sujet en particulier. Pour explorer ce document, il est recommendé d'avoir les bases en machines learning et deep learning.</p>
-    <p> Pour introduire le sujet, voici certaines références :
-        <ul>
-            <li><a href="https://www.insa-lyon.fr/fr/actualites/il-est-possible-d-aller-vers-ia-plus-frugale"> Il est possible d’aller vers une IA plus frugale </a></li>
-            <li><a href="https://hellofuture.orange.com/fr/vers-une-ia-moins-gourmande-en-donnees-et-en-energie/">Vers une IA moins gourmande en données et en énergie</a></li>
-            <li><a href="https://www.edgemiddleeast.com/emergent-tech/frugal-ai-looks-to-crack-case-of-energy-intensive-artificial-intelligence">Frugal AI looks to crack case of energy-intensive artificial intelligence</a></li>
-            <li><a href="https://en.blog.businessdecision.com/green-ai-responsible-artificial-intelligence-is-also-frugal/">Green AI: Responsible artificial intelligence is also frugal</a></li>
-            <li><a href="https://list.cea.fr/fr/page/poser-les-bases-scientifiques-pour-des-ia-de-confiance-frugales-embarquees-et-distribuees/">Poser les bases scientifiques pour des IA de confiance, frugales, embarquées et distribuées</a></li>
+                        <div class="contact-info">
+                            <h3>Contact Information</h3>
+                            <p><strong>Email:</strong> elouan.vincent@insa-lyon.fr</p>
+                            <p><strong>Team:</strong> DM2L@LIRIS</p>
+                        </div>
+                        
+                        <div class="links">
+                            <a href="mailto:elouan.vincent@insa-lyon.fr" class="btn">Email</a>
+                            <a href="https://scholar.google.com/citations?user=YOUR_ID" class="btn" target="_blank">Google Scholar</a>
+                            <a href="https://github.com/ElouanV" class="btn" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/elouan-v/" class="btn" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        </ul>
-    </p>
-    <iframe src="mindmap.pdf" width="150%" height="800px" style="width: 100%; border: none;"></iframe>
-    <p>Lien <a href="mindmap.pdf">vers le PDF</a></p>
+        <!-- Research Interests Section -->
+        <section class="research">
+            <h2>Research Interests</h2>
+            <div class="research-grid">
+                <div class="research-item">
+                    <h3>Graph machine learning</h3>
+                    <p>Developing novel graph neural network architectures and representation learning methods for complex structured data. I am currently working on a new interpretable graph kernel by extracting subgraph of interest with resepect to the predictive task.</p>
+                </div>
+                <div class="research-item">
+                    <h3>Explainable AI (xAI)</h3>
+                    <p>Creating interpretable machine learning models and post-hoc explanation methods to understand AI decision-making processes. I investigate techniques for making black-box models more transparent, developing visualization tools for model explanations, and ensuring AI systems are trustworthy and accountable in critical applications.</p>
+                </div>
+                <div class="research-item">
+                    <h3>Anomaly Detection</h3>
+                    <p>Researching unsupervised and semi-supervised methods for detecting outliers and anomalies in complex datasets. My current work explores the intersection of diffusion models and anomaly detection, focusing on creating more interpretable and robust detection systems for applications in cybersecurity, fraud detection, and system monitoring.</p>
+                </div>
+            </div>
+        </section>
 
-</main>
+        <!-- News Section -->
+        <section class="news">
+            <h2>Latest News</h2>
+            <div class="news-container">
+                
+                
+                <article class="news-item">
+                    <div class="news-date">Aug 2025</div>
+                    <div class="news-content">
+                        <h3>New Paper Accepted</h3>
+                        <p>Our paper "Diffusion for Explainable Unsupervised Anomaly Detection" has been accepted to DSAA 2025. This work explores the use of diffusion processes for enhancing the interpretability of unsupervised anomaly detection methods.</p>
+                        <div class="news-links">
+                            <a href="#" class="btn btn-small">Paper</a>
+                            <a href="#" class="btn btn-small">Code</a>
+                        </div>
+                    </div>
+                </article>
 
-<footer>
-    <p>&copy; 2024 Elouan Vincent</p>
-</footer>
+                <article class="news-item">
+                    <div class="news-date">Jul 2025</div>
+                    <div class="news-content">
+                        <h3>Student Volunteer at COLT 2025</h3>
+                        <p>Excited to volunteer at the Conference on Learning Theory (COLT 2025)! Looking forward to contributing to the machine learning theory community and learning from leading researchers in the field.</p>
+                        <div class="news-links">
+                            <a href="https://learningtheory.org/colt2025/" class="btn btn-small" target="_blank">COLT 2025</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
 
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Elouan V. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

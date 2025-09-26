@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Details - Elouan V.</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>Elouan V.</h1>
+                <p>PhD Student</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="papers.html">Papers</a></li>
+                <li><a href="conferences.html">Conferences</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="paper-detail">
+            <!-- Back to Papers -->
+            <div class="breadcrumb">
+                <a href="papers.html" class="breadcrumb-link">← Back to Papers</a>
+            </div>
+
+            <!-- Paper Header -->
+            <div class="paper-header">
+                <h1 class="paper-title" id="paper-title">Paper Title</h1>
+                <p class="paper-authors" id="paper-authors">Authors</p>
+                <p class="paper-venue" id="paper-venue">Venue</p>
+                <div class="paper-badges" id="paper-badges">
+                    <!-- Status badges will go here -->
+                </div>
+            </div>
+
+            <!-- Paper Content -->
+            <div class="paper-content">
+                <!-- Abstract -->
+                <section class="detail-section">
+                    <h2>Abstract</h2>
+                    <div class="abstract-content" id="abstract-content">
+                        Abstract text will go here...
+                    </div>
+                </section>
+
+                <!-- Links & Resources -->
+                <section class="detail-section">
+                    <h2>Links & Resources</h2>
+                    <div class="resource-grid" id="resource-grid">
+                        <!-- Resource links will be populated here -->
+                    </div>
+                </section>
+
+                <!-- Citation -->
+                <section class="detail-section">
+                    <h2>Citation</h2>
+                    <div class="citation-box">
+                        <div class="citation-tabs">
+                            <button class="citation-tab active" onclick="showCitation('bibtex')">BibTeX</button>
+                            <button class="citation-tab" onclick="showCitation('apa')">APA</button>
+                            <button class="citation-tab" onclick="showCitation('mla')">MLA</button>
+                        </div>
+                        <div class="citation-content">
+                            <pre id="citation-bibtex" class="citation-format active"></pre>
+                            <pre id="citation-apa" class="citation-format"></pre>
+                            <pre id="citation-mla" class="citation-format"></pre>
+                        </div>
+                        <button class="copy-citation-btn" onclick="copyCitation()">Copy Citation</button>
+                    </div>
+                </section>
+
+                <!-- GitHub Repository (if available) -->
+                <section class="detail-section" id="github-section" style="display: none;">
+                    <h2>Code Repository</h2>
+                    <div class="github-info">
+                        <div class="github-header">
+                            <h3 id="repo-name">Repository Name</h3>
+                            <a id="repo-link" href="#" class="btn" target="_blank">View on GitHub</a>
+                        </div>
+                        <p id="repo-description">Repository description...</p>
+                        <div class="repo-stats">
+                            <span class="repo-stat">⭐ Stars: <span id="repo-stars">-</span></span>
+                            <span class="repo-stat">🍴 Forks: <span id="repo-forks">-</span></span>
+                            <span class="repo-stat">📝 Language: <span id="repo-language">Python</span></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Additional Information -->
+                <section class="detail-section" id="additional-info">
+                    <h2>Additional Information</h2>
+                    <div class="info-grid" id="info-content">
+                        <!-- Additional info will be populated here -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Elouan V. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Paper data will be loaded based on URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const paperId = urlParams.get('id');
+        
+        // Paper database
+        const papers = {
+            'dsaa2025': {
+                title: 'Diffusion for Explainable Unsupervised Anomaly Detection',
+                authors: 'Elouan Vincent, Alexandre Dréan, Julien Perez, Marc Plantevit, Céline Robardet',
+                venue: 'IEEE International Conference on Data Science and Advanced Analytics (DSAA), 2025',
+                abstract: 'Statistical anomaly detection is critical across various ' +
+                'domains, including healthcare, finance, industry, and cybersecurity. ' +
+                'While supervised methods often achieve high performance, the ' +
+                'limited availability of labeled data requires effective unsupervised ' +
+                'techniques. In this paper, we introduce Dataset Sampling Iterative ' +
+                'Learning (DSIL), a novel iterative learning framework for unsu- ' +
+                'pervised anomaly detection leveraging generative modeling with ' +
+                'diffusion. Our approach progressively refines an unlabeled dataset ' +
+                'by identifying and removing anomalies, effectively approximating ' +
+                'a semi-supervised setup. We demonstrate the efficiency of our ' +
+                'framework with Diffusion Time Estimation (DTE). Furthermore, ' +
+                'it enables better explainability through a novel approach of noised- ' +
+                'feature discovery. Extensive experiments against unsupervised ' +
+                'methods on both synthetic and real-world datasets demonstrate ' +
+                'improved state-of-the-art performance. Finally, we suggest a novel ' +
+                'usage of existing metrics to evaluate the explainability of anomaly ' +
+                'detection models.',
+                resources: [
+                    { type: 'pdf', label: 'PDF', url: '/home/elouan/thesis/ElouanV.github.io/papers/DSAA___Iterative_learning (1).pdf', available: true },
+                    { type: 'code', label: 'GitHub Code', url: 'https://github.com/ElouanV/iterative_learning_for_anomaly_detection', available: true },
+                    { type: 'doi', label: 'DOI', url: '#', available: false },
+                    { type: 'slides', label: 'Slides', url: '#', available: false }
+                ],
+                github: {
+                    available: true,
+                    name: 'iterative_learning_for_anomaly_detection',
+                    url: 'https://github.com/ElouanV/iterative_learning_for_anomaly_detection',
+                    description: 'Implementation of diffusion-based explainable anomaly detection methods'
+                },
+                bibtex: '@inproceedings{vincent2025diffusion,\n  title={Diffusion for Explainable Unsupervised Anomaly Detection},\n  author={Vincent, Elouan and Drean, Alexandre and Perez, Julien and Plantevit, Marc and Robardet, Celine},\n  booktitle={IEEE International Conference on Data Science and Advanced Analytics (DSAA)},\n  year={2025},\n  organization={IEEE}\n}',
+                apa: 'Vincent, E., Dréan, A., Perez, J., Plantevit, M., & Robardet, C. (2025). Diffusion for Explainable Unsupervised Anomaly Detection. In IEEE International Conference on Data Science and Advanced Analytics (DSAA). IEEE.',
+                mla: 'Vincent, Elouan, et al. "Diffusion for Explainable Unsupervised Anomaly Detection." IEEE International Conference on Data Science and Advanced Analytics (DSAA). IEEE, 2025.'
+            },
+            'xkdd2022': {
+                title: 'Improving the Quality of Rule-Based GNN Explanations',
+                authors: 'Ataollah Kamal, Elouan Vincent, Marc Plantevit, Céline Robardet',
+                venue: 'Workshop on eXplainable Knowledge Discovery in Data Mining (XKDD), ECML PKDD 2022, Grenoble, France, September 19-23, 2022, pp.467–482',
+                abstract: 'Graph Neural Networks (GNNs) have shown remarkable performance on various graph-based tasks, but their decision-making process remains largely opaque. This work addresses the challenge of improving the quality of rule-based explanations for GNN predictions. We propose enhanced methods for extracting meaningful rules that better capture the decision logic of GNNs, focusing on both local and global explanations. Our approach improves the interpretability of GNN models while maintaining their predictive performance, making them more suitable for applications where understanding the reasoning process is crucial.',
+                resources: [
+                    { type: 'pdf', label: 'PDF', url: 'https://hal.science/hal-04580342/file/kamal.22.xkdd.pdf', available: true },
+                    { type: 'doi', label: 'DOI', url: 'https://doi.org/10.1007/978-3-031-23618-1', available: true },
+                    { type: 'code', label: 'Code', url: '#', available: false },
+                    { type: 'slides', label: 'Slides', url: '#', available: false }
+                ],
+                github: {
+                    available: false
+                },
+                bibtex: '@inproceedings{kamal2022improving,\n  title={Improving the Quality of Rule-Based GNN Explanations},\n  author={Kamal, Ataollah and Vincent, Elouan and Plantevit, Marc and Robardet, Celine},\n  note={accepted},\n  booktitle={Workshop on eXplainable Knowledge Discovery in Data Mining. Machine Learning and Principles and Practice of Knowledge Discovery in Databases - International Workshops of ECML PKDD 2022, Grenoble, France, September 19-23, 2022, Proceedings, Part I},\n  address={Grenoble, France},\n  pages={467--482},\n  year={2022},\n  month={Sep},\n  doi={10.1007/978-3-031-23618-1\\_31},\n  pdf={https://hal.science/hal-04580342v1/file/kamal.22.xkdd.pdf},\n  hal_id={hal-04580342},\n  hal_version={v1}\n}',
+                apa: 'Kamal, A., Vincent, E., Plantevit, M., & Robardet, C. (2022). Improving the Quality of Rule-Based GNN Explanations. In Workshop on eXplainable Knowledge Discovery in Data Mining, ECML PKDD 2022 (pp. 467-482). Grenoble, France.',
+                mla: 'Kamal, Ataollah, et al. "Improving the Quality of Rule-Based GNN Explanations." Workshop on eXplainable Knowledge Discovery in Data Mining, ECML PKDD 2022, 2022, pp. 467-482.'
+            }
+        };
+
+        // Load paper data
+        function loadPaperData() {
+            if (!paperId || !papers[paperId]) {
+                document.getElementById('paper-title').textContent = 'Paper not found';
+                return;
+            }
+
+            const paper = papers[paperId];
+            
+            // Set basic info
+            document.getElementById('paper-title').textContent = paper.title;
+            document.getElementById('paper-authors').innerHTML = paper.authors.replace(/Elouan Vincent/g, '<strong>Elouan Vincent</strong>');
+            document.getElementById('paper-venue').textContent = paper.venue;
+            document.getElementById('abstract-content').textContent = paper.abstract;
+            
+            // Set citations
+            document.getElementById('citation-bibtex').textContent = paper.bibtex;
+            document.getElementById('citation-apa').textContent = paper.apa;
+            document.getElementById('citation-mla').textContent = paper.mla;
+            
+            // Load resources
+            const resourceGrid = document.getElementById('resource-grid');
+            resourceGrid.innerHTML = paper.resources.map(resource => `
+                <div class="resource-item ${resource.available ? 'available' : 'unavailable'}">
+                    <div class="resource-icon">${getResourceIcon(resource.type)}</div>
+                    <div class="resource-info">
+                        <h4>${resource.label}</h4>
+                        ${resource.available 
+                            ? `<a href="${resource.url}" class="resource-link" target="_blank">Access</a>`
+                            : '<span class="resource-unavailable">Not available</span>'
+                        }
+                    </div>
+                </div>
+            `).join('');
+            
+            // Load GitHub info if available
+            if (paper.github.available) {
+                document.getElementById('github-section').style.display = 'block';
+                document.getElementById('repo-name').textContent = paper.github.name;
+                document.getElementById('repo-link').href = paper.github.url;
+                document.getElementById('repo-description').textContent = paper.github.description;
+            }
+        }
+
+        function getResourceIcon(type) {
+            const icons = {
+                'pdf': '📄',
+                'code': '💻',
+                'doi': '🔗',
+                'slides': '📊',
+                'video': '🎥',
+                'poster': '🖼️'
+            };
+            return icons[type] || '📎';
+        }
+
+        function showCitation(format) {
+            // Hide all citation formats
+            document.querySelectorAll('.citation-format').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.citation-tab').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Show selected format
+            document.getElementById(`citation-${format}`).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function copyCitation() {
+            const activeFormat = document.querySelector('.citation-format.active');
+            navigator.clipboard.writeText(activeFormat.textContent).then(() => {
+                const btn = document.querySelector('.copy-citation-btn');
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = '#10b981';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '#2563eb';
+                }, 2000);
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', loadPaperData);
+    </script>
+</body>
+</html>

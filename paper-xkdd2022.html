@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improving the Quality of Rule-Based GNN Explanations - Elouan Vincent</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">Elouan Vincent</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="papers.html">Papers</a></li>
+                <li><a href="conferences.html">Conferences</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="paper-detail">
+        <div class="container">
+            <!-- Back button -->
+            <a href="papers.html" class="back-btn">← Back to Papers</a>
+            
+            <!-- Paper header -->
+            <div class="paper-header">
+                <h1>Improving the Quality of Rule-Based GNN Explanations</h1>
+                <div class="paper-meta">
+                    <p class="authors">Ataollah Kamal, Elouan Vincent, Marc Plantevit, Céline Robardet</p>
+                    <p class="venue">Workshop on eXplainable Knowledge Discovery in Data Mining, ECML PKDD 2022</p>
+                </div>
+            </div>
+
+            <!-- Abstract -->
+            <div class="paper-section">
+                <h2>Abstract</h2>
+                <p class="abstract">Graph Neural Networks (GNNs) have gained significant attention for their ability to handle graph-structured data. However, the lack of transparency in their decision-making process has led to increased interest in explainable AI for GNNs. Rule-based explanations provide interpretable insights into GNN predictions, but their quality can vary significantly. This paper addresses the challenge of improving the quality of rule-based explanations for GNN models through novel methodological approaches and evaluation metrics.</p>
+            </div>
+
+            <!-- Resources -->
+            <div class="paper-section">
+                <h2>Resources</h2>
+                <div class="resource-grid">
+                    <div class="resource-item available">
+                        <div class="resource-icon">📄</div>
+                        <div class="resource-info">
+                            <h4>PDF</h4>
+                            <a href="https://hal.science/hal-04580342v1/file/kamal.22.xkdd.pdf" class="resource-link" target="_blank">Access</a>
+                        </div>
+                    </div>
+                    <div class="resource-item unavailable">
+                        <div class="resource-icon">💻</div>
+                        <div class="resource-info">
+                            <h4>GitHub Code</h4>
+                            <span class="resource-unavailable">Not available</span>
+                        </div>
+                    </div>
+                    <div class="resource-item available">
+                        <div class="resource-icon">🔗</div>
+                        <div class="resource-info">
+                            <h4>DOI</h4>
+                            <a href="https://doi.org/10.1007/978-3-031-23618-1_31" class="resource-link" target="_blank">Access</a>
+                        </div>
+                    </div>
+                    <div class="resource-item unavailable">
+                        <div class="resource-icon">📊</div>
+                        <div class="resource-info">
+                            <h4>Slides</h4>
+                            <span class="resource-unavailable">Not available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Citations -->
+            <div class="paper-section">
+                <h2>Citation</h2>
+                <div class="citation-tabs">
+                    <button class="citation-tab active" onclick="showCitation('bibtex')">BibTeX</button>
+                    <button class="citation-tab" onclick="showCitation('apa')">APA</button>
+                    <button class="citation-tab" onclick="showCitation('mla')">MLA</button>
+                </div>
+                <div class="citation-content">
+                    <div id="bibtex" class="citation-format active">
+                        <pre>@inproceedings{kamal2022improving,
+  title={Improving the Quality of Rule-Based GNN Explanations},
+  author={Kamal, Ataollah and Vincent, Elouan and Plantevit, Marc and Robardet, Celine},
+  note={accepted},
+  booktitle={Workshop on eXplainable Knowledge Discovery in Data Mining. Machine Learning and Principles and Practice of Knowledge Discovery in Databases - International Workshops of ECML PKDD 2022, Grenoble, France, September 19-23, 2022, Proceedings, Part I},
+  address={Grenoble, France},
+  pages={467--482},
+  year={2022},
+  month={Sep},
+  doi={10.1007/978-3-031-23618-1\_31},
+  pdf={https://hal.science/hal-04580342v1/file/kamal.22.xkdd.pdf},
+  hal_id={hal-04580342},
+  hal_version={v1}
+}</pre>
+                        <button class="copy-btn" onclick="copyToClipboard('bibtex')">Copy</button>
+                    </div>
+                    <div id="apa" class="citation-format">
+                        <p>Kamal, A., Vincent, E., Plantevit, M., & Robardet, C. (2022). Improving the Quality of Rule-Based GNN Explanations. In Workshop on eXplainable Knowledge Discovery in Data Mining, ECML PKDD 2022 (pp. 467-482). Grenoble, France.</p>
+                        <button class="copy-btn" onclick="copyToClipboard('apa')">Copy</button>
+                    </div>
+                    <div id="mla" class="citation-format">
+                        <p>Kamal, Ataollah, et al. "Improving the Quality of Rule-Based GNN Explanations." Workshop on eXplainable Knowledge Discovery in Data Mining, ECML PKDD 2022. Grenoble, France, 2022. 467-482.</p>
+                        <button class="copy-btn" onclick="copyToClipboard('mla')">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showCitation(format) {
+            // Hide all citation formats
+            document.querySelectorAll('.citation-format').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.citation-tab').forEach(el => el.classList.remove('active'));
+            
+            // Show selected format
+            document.getElementById(format).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function copyToClipboard(format) {
+            const element = document.getElementById(format);
+            const text = format === 'bibtex' ? element.querySelector('pre').textContent : element.querySelector('p').textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const button = element.querySelector('.copy-btn');
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

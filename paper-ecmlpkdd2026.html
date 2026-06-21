@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GELATO - Self-Explainable GNNs - Elouan Vincent</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav>
+<div class="nav-container">
+<div class="nav-brand"><a href="index.html">Elouan Vincent</a></div>
+<ul class="nav-menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="papers.html">Papers</a></li>
+<li><a href="conferences.html">Conferences</a></li>
+</ul>
+</div>
+</nav>
+<main class="paper-detail">
+<div class="container">
+<a href="papers.html" class="back-btn">← Back to Papers</a>
+<div class="paper-header">
+<h1>Optimal Transport Prototypes and Symbolic Logic Combination for Self-Explainable Graph Neural Networks</h1>
+<div class="paper-meta">
+<p class="authors">Elouan Vincent, Julien Perez, Marc Plantevit, Céline Robardet</p>
+<p class="venue">European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML PKDD), Naples, Italy, September 2026</p>
+</div>
+</div>
+<div class="paper-section">
+<h2>Abstract</h2>
+<p class="abstract">Graph Neural Networks achieve strong performance across diverse graph-based tasks, but their black-box nature remains a major obstacle in domains where interpretability is crucial. Prototype-based self-explainable GNNs mitigate this issue by grounding predictions in comparison with learned patterns. However, existing methods either restrict prototypes to training subgraphs, limiting expressiveness, or learn latent prototypes that lack interpretable counterparts in graph space. We introduce GELATO (Graph Explainability via Logic And Transport Optimization), a hybrid self-explainable graph classifier that integrates optimal transport, prototype grounding, and symbolic logic to produce faithful and human-readable explanations. We learn prototypes as point clouds in the embedding space and compare them to input graphs using partial optimal transport. To recover semantic meaning in graph space, each prototype point is anchored to a representative ego-network extracted from the training graphs. These similarity scores are then processed by a transparent logic layer that distills the model decisions into human-interpretable logical rules. Experiments on molecular and synthetic benchmarks show competitive predictive performance while producing interpretable, example-based explanations grounded in real graph structures.</p>
+</div>
+<div class="paper-section">
+<h2>Resources</h2>
+<div class="resource-grid">
+<div class="resource-item available">
+<div class="resource-icon">💻</div>
+<div class="resource-info">
+<h4>GitHub Code</h4>
+<a href="https://github.com/ElouanV/gelato" class="resource-link" target="_blank">Access</a>
+</div>
+</div>
+<div class="resource-item unavailable">
+<div class="resource-icon">📄</div>
+<div class="resource-info"><h4>PDF</h4><span class="resource-unavailable">Coming soon</span></div>
+</div>
+<div class="resource-item unavailable">
+<div class="resource-icon">🔗</div>
+<div class="resource-info"><h4>DOI</h4><span class="resource-unavailable">Coming soon</span></div>
+</div>
+<div class="resource-item unavailable">
+<div class="resource-icon">📊</div>
+<div class="resource-info"><h4>Slides</h4><span class="resource-unavailable">Coming soon</span></div>
+</div>
+</div>
+</div>
+<div class="paper-section">
+<h2>Citation</h2>
+<div class="citation-tabs">
+<button class="citation-tab active" onclick="showCitation('bibtex')">BibTeX</button>
+<button class="citation-tab" onclick="showCitation('apa')">APA</button>
+</div>
+<div class="citation-content">
+<div id="bibtex" class="citation-format active">
+<pre>@inproceedings{vincent2026gelato,
+  title={Optimal Transport Prototypes and Symbolic Logic Combination for Self-Explainable Graph Neural Networks},
+  author={Vincent, Elouan and Perez, Julien and Plantevit, Marc and Robardet, Celine},
+  booktitle={ECML PKDD},
+  year={2026}
+}</pre>
+<button class="copy-btn" onclick="copyToClipboard('bibtex')">Copy</button>
+</div>
+<div id="apa" class="citation-format">
+<p>Vincent, E., Perez, J., Plantevit, M., &amp; Robardet, C. (2026). Optimal Transport Prototypes and Symbolic Logic Combination for Self-Explainable GNNs. ECML PKDD. Naples.</p>
+<button class="copy-btn" onclick="copyToClipboard('apa')">Copy</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+function showCitation(f){document.querySelectorAll('.citation-format,.citation-tab').forEach(e=>e.classList.remove('active'));document.getElementById(f).classList.add('active');event.target.classList.add('active');}
+function copyToClipboard(f){const el=document.getElementById(f);const t=f==='bibtex'?el.querySelector('pre').textContent:el.querySelector('p').textContent;navigator.clipboard.writeText(t).then(()=>{const b=el.querySelector('.copy-btn');const o=b.textContent;b.textContent='Copied!';setTimeout(()=>{b.textContent=o;},2000);});}
+</script>
+</body>
+</html>
